@@ -7,8 +7,8 @@ CarBack::CarBack(QWidget *parent) :
 	ui(new Ui::CarBack)
 {
 	ui->setupUi(this);
-	WWithCars *temp;
-	temp->listFromFile ();
+	//WWithCars *temp;
+	//temp->listFromFile ();
 }
 
 CarBack::~CarBack()

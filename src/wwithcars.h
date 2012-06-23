@@ -2,7 +2,7 @@
 #define WWITHCARS_H
 #include <QtCore/QList>
 #include <QtCore>
-
+/*
 struct dataHandler
 {
 	QString driverLicNumber;
@@ -13,13 +13,13 @@ struct dataHandler
 
 extern QList<dataHandler> listOfCars;
 extern dataHandler st;
-
+*/
 class WWithCars
 {
 public:
 	WWithCars();
-	void listToFile();
-	void listFromFile();
+	//void listToFile();
+	//void listFromFile();
 };
 
 #endif // WWITHCARS_H

@@ -10,7 +10,8 @@ SOURCES += src/main.cpp\
     src/wwithcars.cpp \
     src/workingwh.cpp \
     src/workwc.cpp \
-    src/carback.cpp
+    src/carback.cpp \
+    src/wwithcars.cpp
 
 HEADERS  += src/mainwindow.h \
 	src/newclient.h \
