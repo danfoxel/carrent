@@ -1,5 +1,5 @@
-#ifndef WWITHCARS_H
-#define WWITHCARS_H
+#ifndef CARCHANGE_H
+#define CARCHANGE_H
 #include <QtCore/QList>
 #include <QtCore>
 /*
@@ -14,12 +14,13 @@ struct dataHandler
 extern QList<dataHandler> listOfCars;
 extern dataHandler st;
 */
-class WWithCars
+
+class CarChange
 {
 public:
-	WWithCars();
+	CarChange();
 	//void listToFile();
 	//void listFromFile();
 };
 
-#endif // WWITHCARS_H
+#endif // CARCHANGE_H
