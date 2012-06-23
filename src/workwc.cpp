@@ -14,7 +14,6 @@ WorkWC::WorkWC(QWidget *parent) :
 	ui(new Ui::WorkWC)
 {
 	ui->setupUi(this);
-	testtree();
 }
 
 WorkWC::~WorkWC()
@@ -22,10 +21,6 @@ WorkWC::~WorkWC()
 	delete ui;
 }
 
-int WorkWC::testtree()
-{
-	qDebug ()<< "AVL invariant preserved";
-}
 
 void WorkWC::changeEvent(QEvent *e)
 {

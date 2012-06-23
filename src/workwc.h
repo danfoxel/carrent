@@ -14,7 +14,6 @@ class WorkWC : public QDialog
 public:
 	explicit WorkWC(QWidget *parent = 0);
 	~WorkWC();
-	int testtree();
 
 protected:
 	void changeEvent(QEvent *e);
