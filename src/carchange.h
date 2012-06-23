@@ -2,7 +2,7 @@
 #define CARCHANGE_H
 #include <QtCore/QList>
 #include <QtCore>
-/*
+
 struct dataHandler
 {
 	QString driverLicNumber;
@@ -13,14 +13,13 @@ struct dataHandler
 
 extern QList<dataHandler> listOfCars;
 extern dataHandler st;
-*/
 
 class CarChange
 {
 public:
 	CarChange();
-	//void listToFile();
-	//void listFromFile();
+	void listToFile();
+	void listFromFile();
 };
 
 #endif // CARCHANGE_H

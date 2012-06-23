@@ -1,8 +1,11 @@
 #ifndef AVLTREE_H
 #define AVLTREE_H
 
+#include <QtCore>
 #include <cstdlib>
 #include <cmath>
+
+//extern AvlTree <ClientHandler> clientHandler;
 
 using std::abs;
 
