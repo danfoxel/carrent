@@ -19,6 +19,7 @@ HEADERS  += src/mainwindow.h \
     src/workwc.h \
     src/carback.h \
     src/carchange.h \
+    src/avltree.h \
     src/avltree.h
 
 FORMS    += src/mainwindow.ui \
