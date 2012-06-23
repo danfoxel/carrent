@@ -11,7 +11,7 @@ void CarChange::listToFile ()
 	int sizeHandler=listOfCars.size ();
 	QSettings settings("listOfOrders.ini",QSettings::IniFormat); //создали файл с настройками
 	 settings.beginWriteArray("ListOfOrders",sizeHandler); //начали записывать массив
-	 for (int i = 0; i < sizeHandler; ++i)
+	 for (int i = 0; i < sizeHandler; i++)
 	 {
 		settings.setArrayIndex(i);
 		settings.setValue("carNumber", listOfCars[i].carNumber);
@@ -27,14 +27,15 @@ void CarChange::listFromFile ()
 	QSettings settings("listOfOrders.ini",QSettings::IniFormat);
 	settings.beginReadArray("ListOfOrders");
 	QVariant sizeHandler=settings.value ("size");
-	for (int i = 0; i < sizeHandler.toInt (); ++i)
+	for (int i = 0; i < sizeHandler.toInt (); i++)
 	{
-		settings.setArrayIndex(i);
 		listOfCars.append (st);
+		settings.setArrayIndex(i);
 		listOfCars[i].carNumber = settings.value("carNumber").toString();
 		listOfCars[i].driverLicNumber = settings.value("driverLicNumber").toString();
 		listOfCars[i].dateIn = settings.value("dateIn").toString();
 		listOfCars[i].dateOut = settings.value("dateOut").toString();
 	}
 	settings.endArray();
+	qDebug ()<<listOfCars[0].driverLicNumber<<listOfCars[3].driverLicNumber;
 }

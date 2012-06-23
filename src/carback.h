@@ -21,6 +21,8 @@ protected:
 
 private slots:
 	void on_lineEdit_textChanged(const QString &arg1);
+	void acceptData();
+	void on_tableWidget_cellActivated(int row, int column);
 
 private:
 	Ui::CarBack *ui;

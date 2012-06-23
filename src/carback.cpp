@@ -1,15 +1,22 @@
+#include <QMessageBox>
+
 #include "carchange.h"
 #include "carback.h"
 #include "ui_carback.h"
+
+int handler=0;
 
 CarBack::CarBack(QWidget *parent) :
 	QDialog(parent),
 	ui(new Ui::CarBack)
 {
 	ui->setupUi(this);
+	connect (ui->pushButton, SIGNAL (clicked()),SLOT (acceptData()));
 
-	int sizeHandler=listOfCars.size ();
-	ui->tableWidget->setRowCount(sizeHandler);
+	CarChange *temp;
+	temp->listFromFile ();
+
+	ui->tableWidget->setRowCount(listOfCars.size ());
 	ui->tableWidget->setColumnCount(4);
 	QStringList labels;
 	labels << "Car goverment number" << "Driver license number" << "Date In" << "Date out";
@@ -37,11 +44,7 @@ void CarBack::changeEvent(QEvent *e)
 
 void CarBack::addData()
 {
-	CarChange *temp;
-	temp->listFromFile ();
-
-	int sizeHandler=listOfCars.size ();
-	for(int i=0;i<sizeHandler;i++)
+	for(int i=0;i<(listOfCars.size ());i++)
 	{
 		ui->tableWidget->setItem (i,0,new QTableWidgetItem(listOfCars[i].carNumber));
 		ui->tableWidget->setItem (i,1,new QTableWidgetItem(listOfCars[i].driverLicNumber));
@@ -52,7 +55,7 @@ void CarBack::addData()
 
 void CarBack::on_lineEdit_textChanged(const QString &arg1)
 {
-	if (ui->lineEdit->text()== arg1)
+	if (ui->lineEdit->text()== "")
 	{
 		ui->tableWidget->setCurrentCell(0,0);
 		ui->tableWidget->clearSelection();
@@ -64,12 +67,57 @@ void CarBack::on_lineEdit_textChanged(const QString &arg1)
 
 	 foreach (item, found)
 	 {
-		if (item->column()==0) //подсвечиваем 0-й столбец
+		switch (item->column())
+		{
+		case 0:
 		{
 		ui->tableWidget->clearSelection();
 		ui->tableWidget->setItemSelected(item, true);
 		ui->tableWidget->setCurrentCell(item->row(),item->column());
 		break;
 		}
+		case 1:
+		{
+			ui->tableWidget->clearSelection();
+			ui->tableWidget->setItemSelected(item, true);
+			ui->tableWidget->setCurrentCell(item->row(),item->column());
+			break;
+		}
+		case 2:
+		{
+			ui->tableWidget->clearSelection();
+			ui->tableWidget->setItemSelected(item, true);
+			ui->tableWidget->setCurrentCell(item->row(),item->column());
+			break;
+		}
+		case 3:
+		{
+			ui->tableWidget->clearSelection();
+			ui->tableWidget->setItemSelected(item, true);
+			ui->tableWidget->setCurrentCell(item->row(),item->column());
+			break;
+		}
+		}
 	 }
+}
+
+void CarBack::acceptData()
+{
+	if (ui->label_3->text () == "")
+	{
+		QMessageBox::information(0, "Attention!", "Please, select car!");
+	}else	{
+		listOfCars.removeAt (handler);
+		CarChange *temp;
+		temp->listToFile ();
+		QMessageBox::information(0, "Attention!", "This car is free now. Client need to pay some money!");
+		CarBack::accept ();
+	}
+}
+
+void CarBack::on_tableWidget_cellActivated(int row, int column)
+{
+	QString temps=listOfCars[row].carNumber;
+	handler=row;
+	ui->label_3->setText (temps);
 }
