@@ -22,6 +22,8 @@ class AvlTree
 		void clear_all();
 		bool is_empty_tree();
 		void print();
+		void treeToFile ();
+		void treeFromFile ();
 
 	protected:
 		struct Node
