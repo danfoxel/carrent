@@ -28,7 +28,7 @@ void WorkingWH::carsToFile()
 	vCarMass[2].inSale=false;
 	vCarMass[2].isFull=true;
 */
-
+	QFile::remove ("cars.ini");
 	QSettings settings("cars.ini",QSettings::IniFormat); //создали файл с настройками
 	 settings.beginWriteArray("Cars",1000); //начали записывать массив
 	 for (int i = 0; i < 1000; ++i)

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'carback.ui'
 **
-** Created: Sun 24. Jun 00:44:41 2012
+** Created: Sun 24. Jun 13:56:59 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -90,7 +90,6 @@ public:
 
 
         retranslateUi(CarBack);
-        QObject::connect(pushButton_2, SIGNAL(clicked()), CarBack, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(CarBack);
     } // setupUi

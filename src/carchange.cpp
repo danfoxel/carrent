@@ -9,17 +9,19 @@ CarChange::CarChange()
 void CarChange::listToFile ()
 {
 	int sizeHandler=listOfCars.size ();
+	QFile::remove ("listOfOrders.ini");
 	QSettings settings("listOfOrders.ini",QSettings::IniFormat); //создали файл с настройками
-	 settings.beginWriteArray("ListOfOrders",sizeHandler); //начали записывать массив
-	 for (int i = 0; i < sizeHandler; i++)
-	 {
+	settings.remove ("dateOut");
+	settings.beginWriteArray("ListOfOrders",sizeHandler); //начали записывать массив
+	for (int i = 0; i < sizeHandler; i++)
+	{
 		settings.setArrayIndex(i);
 		settings.setValue("carNumber", listOfCars[i].carNumber);
 		settings.setValue("driverLicNumber", listOfCars[i].driverLicNumber);
 		settings.setValue("dateIn", listOfCars[i].dateIn);
 		settings.setValue("dateOut", listOfCars[i].dateOut);
-	 }
-	 settings.endArray();
+	}
+	settings.endArray();
 }
 
 void CarChange::listFromFile ()
@@ -37,5 +39,4 @@ void CarChange::listFromFile ()
 		listOfCars[i].dateOut = settings.value("dateOut").toString();
 	}
 	settings.endArray();
-	qDebug ()<<listOfCars[0].driverLicNumber<<listOfCars[3].driverLicNumber;
 }

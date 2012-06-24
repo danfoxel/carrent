@@ -4,7 +4,7 @@
 #include "carback.h"
 #include "ui_carback.h"
 
-int handler=0;
+int handler;
 
 CarBack::CarBack(QWidget *parent) :
 	QDialog(parent),
@@ -12,10 +12,12 @@ CarBack::CarBack(QWidget *parent) :
 {
 	ui->setupUi(this);
 	connect (ui->pushButton, SIGNAL (clicked()),SLOT (acceptData()));
+	connect (ui->pushButton_2, SIGNAL (clicked()),SLOT (cancelButton()));
 
 	CarChange *temp;
 	temp->listFromFile ();
 
+	//qDebug ()<<listOfCars.size ();
 	ui->tableWidget->setRowCount(listOfCars.size ());
 	ui->tableWidget->setColumnCount(4);
 	QStringList labels;
@@ -111,8 +113,10 @@ void CarBack::acceptData()
 		CarChange *temp;
 		temp->listToFile ();
 		QMessageBox::information(0, "Attention!", "This car is free now. Client need to pay some money!");
+		listOfCars.clear ();
 		CarBack::accept ();
 	}
+
 }
 
 void CarBack::on_tableWidget_cellActivated(int row, int column)
@@ -120,4 +124,10 @@ void CarBack::on_tableWidget_cellActivated(int row, int column)
 	QString temps=listOfCars[row].carNumber;
 	handler=row;
 	ui->label_3->setText (temps);
+}
+
+void CarBack::cancelButton()
+{
+	listOfCars.clear ();
+	CarBack::reject ();
 }
