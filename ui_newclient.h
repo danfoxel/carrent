@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'newclient.ui'
 **
-** Created: Sun 24. Jun 00:44:41 2012
+** Created: Mon 25. Jun 12:34:13 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -41,13 +41,13 @@ public:
     QWidget *page_2;
     QGridLayout *gridLayout_2;
     QLabel *label;
-    QLineEdit *lineEdit;
+    QLineEdit *drLicIn;
     QLabel *label_2;
-    QLineEdit *lineEdit_2;
+    QLineEdit *FioIn;
     QLabel *label_3;
-    QLineEdit *lineEdit_3;
+    QLineEdit *PassIn;
     QLabel *label_4;
-    QLineEdit *lineEdit_4;
+    QLineEdit *HomeAdrIn;
     QLabel *label_9;
     QCalendarWidget *calendarWidget;
     QLabel *label_5;
@@ -102,40 +102,40 @@ public:
 
         gridLayout_2->addWidget(label, 0, 0, 1, 2);
 
-        lineEdit = new QLineEdit(page_2);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        drLicIn = new QLineEdit(page_2);
+        drLicIn->setObjectName(QString::fromUtf8("drLicIn"));
 
-        gridLayout_2->addWidget(lineEdit, 0, 2, 1, 3);
+        gridLayout_2->addWidget(drLicIn, 0, 2, 1, 3);
 
         label_2 = new QLabel(page_2);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         gridLayout_2->addWidget(label_2, 1, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(page_2);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        FioIn = new QLineEdit(page_2);
+        FioIn->setObjectName(QString::fromUtf8("FioIn"));
 
-        gridLayout_2->addWidget(lineEdit_2, 1, 2, 1, 3);
+        gridLayout_2->addWidget(FioIn, 1, 2, 1, 3);
 
         label_3 = new QLabel(page_2);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         gridLayout_2->addWidget(label_3, 2, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(page_2);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        PassIn = new QLineEdit(page_2);
+        PassIn->setObjectName(QString::fromUtf8("PassIn"));
 
-        gridLayout_2->addWidget(lineEdit_3, 2, 2, 1, 3);
+        gridLayout_2->addWidget(PassIn, 2, 2, 1, 3);
 
         label_4 = new QLabel(page_2);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         gridLayout_2->addWidget(label_4, 3, 0, 1, 1);
 
-        lineEdit_4 = new QLineEdit(page_2);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+        HomeAdrIn = new QLineEdit(page_2);
+        HomeAdrIn->setObjectName(QString::fromUtf8("HomeAdrIn"));
 
-        gridLayout_2->addWidget(lineEdit_4, 3, 2, 1, 3);
+        gridLayout_2->addWidget(HomeAdrIn, 3, 2, 1, 3);
 
         label_9 = new QLabel(page_2);
         label_9->setObjectName(QString::fromUtf8("label_9"));

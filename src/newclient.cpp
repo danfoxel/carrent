@@ -1,10 +1,13 @@
 #include <QDebug>
 #include <QLineEdit>
+#include <QDate>
 
+#include "avltree.h"
 #include "carchange.h"
 #include "workingwh.h"
 #include "newclient.h"
 #include "ui_newclient.h"
+
 
 int rowHandler;
 
@@ -27,13 +30,13 @@ newClient::newClient(QWidget *parent) :
 			count++;
 	}
 
-	ui->lineEdit->setInputMask ("99>AA999999");
-	ui->lineEdit_3->setInputMask ("9999 999999 00-00-0000 XXXXXXXXXXXXXXX");
+	ui->drLicIn->setInputMask ("99>AA999999");
+	ui->PassIn->setInputMask ("9999 999999 00-00-0000 XXXXXXXXXXXXXXX");
 
 	ui->tableWidget->setRowCount(count);
-	ui->tableWidget->setColumnCount(4);
+	ui->tableWidget->setColumnCount(5);
 	QStringList labels;
-	labels << "Car goverment number" << "Car model" << "Car color" << "Year";
+	labels << "Car goverment number" << "Car model" << "Car color" << "Year"<<"Car system number";
 	ui->tableWidget->setHorizontalHeaderLabels (labels);
 	addData ();
 	ui->tableWidget->resizeColumnsToContents ();
@@ -62,6 +65,7 @@ void newClient::addData()
 		ui->tableWidget->setItem (i,1,new QTableWidgetItem(vCarMass[i].model));
 		ui->tableWidget->setItem (i,2,new QTableWidgetItem(vCarMass[i].color));
 		ui->tableWidget->setItem (i,3,new QTableWidgetItem(str));
+		ui->tableWidget->setItem (i,4,new QTableWidgetItem(i));
 	}
 }
 
@@ -80,12 +84,12 @@ void newClient::changeEvent(QEvent *e)
 void newClient::nextTab()
 {
 	ui->toolBox->setCurrentIndex (1);
-	ui->lineEdit->setFocus ();
+	ui->drLicIn->setFocus ();
 }
 
 void newClient::doubleClickOnCar(int row, int column)
 {
-	rowHandler=row;
+	rowHandler=ui->tableWidget->item (row,4)->text ().toInt ();
 	ui->label_6->setText (ui->tableWidget->item (row,0)->text ());
 	ui->label_7->setText (ui->tableWidget->item (row,1)->text ());
 	ui->label_8->setText (ui->tableWidget->item (row,2)->text ());
@@ -95,6 +99,18 @@ void newClient::doubleClickOnCar(int row, int column)
 void newClient::acceptData()
 {
 	vCarMass[rowHandler].inSale=false; //записали что машина занята, убираем из списка
-	//записываем данные клиента
-	//записываем данные в список проката
+
+	clHa.driverLicNumber=ui->drLicIn->text ();
+	clHa.fIO=ui->FioIn->text ();
+	clHa.clientAdress=ui->HomeAdrIn->text ();
+	clHa.passportData=ui->PassIn->text ();
+
+	AvlTree <class T> *tem;
+	tem->add(clHa);
+
+	st.carNumber=vCarMass[rowHandler].number;
+	st.dateIn=QDate::currentDate ().toString ();
+	st.dateOut=ui->calendarWidget->selectedDate ().toString ();
+	st.driverLicNumber==ui->drLicIn->text ();
+	listOfCars.append (st); 	//записываем данные в список проката
 }

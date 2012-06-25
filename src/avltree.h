@@ -5,7 +5,18 @@
 #include <cstdlib>
 #include <cmath>
 
+struct ClientHandler
+{
+	QString driverLicNumber;
+	QString fIO;
+	QString passportData;
+	QString clientAdress;
+
+};
+
+
 //extern AvlTree <ClientHandler> clientHandler;
+extern ClientHandler clHa;
 
 using std::abs;
 
@@ -22,8 +33,8 @@ class AvlTree
 		void clear_all();
 		bool is_empty_tree();
 		void print();
-		void treeToFile ();
-		void treeFromFile ();
+		//void treeToFile ();
+		//void treeFromFile ();
 
 	protected:
 		struct Node

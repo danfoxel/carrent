@@ -2,6 +2,7 @@
 #define CARBACK_H
 
 #include <QtGui/QDialog>
+#include "carchange.h"
 
 namespace Ui {
 class CarBack;

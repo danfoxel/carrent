@@ -2,6 +2,8 @@
 #define CARCHANGE_H
 #include <QtCore/QList>
 #include <QtCore>
+#include <string>
+#include "avltree.h"
 
 struct dataHandler
 {
@@ -14,7 +16,9 @@ struct dataHandler
 extern QList<dataHandler> listOfCars;
 extern dataHandler st;
 
-class CarChange
+using std::string;
+
+class CarChange:public AvlTree <Car>
 {
 public:
 	CarChange();
